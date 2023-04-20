@@ -1,3 +1,9 @@
+const inquirer = require('inquirer');
+const fs = require = require('fs');
+const generateMarkdown = require("./generateMarkdown.js");
+
+
+
 const questions = [
     {
         type: 'input',
@@ -134,6 +140,20 @@ const questions = [
     },
 
 
-]
+];
+function writeToFile(fileName, data) {
+    fs.writeFile("./dist/README.md", generateMarkdown(data), err => console.log(err))
 
-module.exports = questions;
+}
+
+function init() {
+    inquirer.prompt(questions)
+        .then(response => {
+            console.log(response);
+            // writeToFile('README.md', response);
+            const printMarkdown = generateMarkdown(response);
+            writeToFile('README.md', printMarkdown)
+        })
+}
+init();
+
