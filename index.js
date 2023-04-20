@@ -1,17 +1,19 @@
-const inquirer = require("inquirer");
+const inquirer = require('inquirer');
+const questions = require("./Utils/questions.js")
+const fs = require('fs');
+const generateMarkdown = require('./Utils/generateMarkdown.js');
 
-inquirer
-    .createPromptModule([
-        {
-            type: 'input',
-            name: 'name',
-            message: 'what is your name?',
-        }
-    ])
-    .then((response) => {
-        console.log(response)
-        response.confirm === response.password
-            ? console.log('Success!')
-            : console.log('You forgot your password already?!')
-    }
-    );
+function init() {
+    inquirer.prompt(questions)
+        .then(response => {
+            console.log(response);
+            writeToFile('README.md', response);
+        })
+}
+
+function writeToFile(fileName, data) {
+    fs.writeFile("./dist/README.md", generateMarkdown(data), err => console.log(err))
+
+}
+
+init();
