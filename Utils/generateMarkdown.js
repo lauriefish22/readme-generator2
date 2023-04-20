@@ -1,19 +1,4 @@
-// // TODO: Create a function that returns a license badge based on which license is passed in
-// // If there is no license, return an empty string
-
-
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {
-    return `https://opensource.org/license/${license}`
-
-}
-
-
-
 function renderLicenseBadge(license) {
-
     if (license === 'MIT') {
         return `https://img.shields.io/badge/license-${license}-blue.svg`
     }
@@ -25,25 +10,22 @@ function renderLicenseBadge(license) {
     }
 
 }
+function renderLicenseLink(license) {
+    return `https://opensource.org/license/${license}`
 
-// // TODO: Create a function that returns the license section of README
-// // If there is no license, return an empty string
+}
+
 function renderLicenseSection(license) {
-    if (!wantLicense) {
-        return '';
-    } else {
-        return `## Licens
-        ${license}
-        `
-    }
+    return `[![License](${renderLicenseBadge(license)})](${renderLicenseLink(license)})`;
 }
 
 
-// TODO: Create a function to generate markdown for README
+
+
 function generateMarkdown(data) {
-    console.log("FROM GM>>>", data)
-    return `# ${data.name}
-    ${renderLicenseBadge(data.license)}
+
+    return `# ${data.title}
+    ${renderLicenseSection(data.license)}
 
 ## Table of Contents
 
@@ -59,8 +41,7 @@ function generateMarkdown(data) {
 [Questions](#questions)
 
     
-## Title
-${data.title}
+# ${data.title}
 
 ## Description
 ${data.description}
@@ -78,7 +59,7 @@ ${data.usage}
 ${data.license}
 
 ## Technology Used
-${data.technology}
+${data.tech}
 
 ## Installation
 ${data.installation}
@@ -91,13 +72,8 @@ If you have any questions please contact!
 
 [Email] (mailto:${data.email})
 
-[GitHub]('https://github.com${data.github}')
-
-
-            `;
-}
-
-
-
+    [GitHub]("https://github.com${data.github}")
+        ;
+    
 module.exports = generateMarkdown;
 
