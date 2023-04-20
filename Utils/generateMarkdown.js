@@ -33,7 +33,7 @@ function renderLicenseSection(license) {
     if (!license) {
         return '';
     } else {
-        return `## Licenses
+        return `## License
         `
     }
 }
@@ -47,16 +47,16 @@ function generateMarkdown(data) {
 
 ## Table of Contents
 
-        - *[Title]
-        [Description](#description)
-        [Email](#email)
-        [GitHub](#github)
-        [Usage](#usage)
-        [License](#license)
-        [Technology](#technology)
-        [Installation](#installation)
-        [contribution](#contribution)
-        [Questions](#questions)
+[Title](#title)
+[Description](#description)
+[Email](#email)
+[GitHub](#github)
+[Usage](#usage)
+[License](#license)
+[Technology](#technology)
+[Installation](#installation)
+[contribution](#contribution)
+[Questions](#questions)
 
     
 ## Title
