@@ -15,25 +15,25 @@ function renderLicenseLink(license) {
 function renderLicenseBadge(license) {
 
     if (license === 'MIT') {
-        return `https://img.shields.io/badge/license-${license}-blue`
+        return `https://img.shields.io/badge/license-${license}-blue.svg`
     }
     if (license === 'Boost') {
-        return `https://img.shields.io/badge/license-${license}-red`
+        return `https://img.shields.io/badge/license-${license}-red.svg`
     }
     if (license === 'Eclipse') {
-        return `https://img.shields.io/badge/license-${license}-blue`
+        return `https://img.shields.io/badge/license-${license}-blue.svg`
     }
-
 
 }
 
 // // TODO: Create a function that returns the license section of README
 // // If there is no license, return an empty string
 function renderLicenseSection(license) {
-    if (!license) {
+    if (!wantLicense) {
         return '';
     } else {
-        return `## License
+        return `## Licens
+        ${license}
         `
     }
 }
@@ -66,7 +66,7 @@ ${data.title}
 ${data.description}
 
 ## Email:
-        <a href="${data.email}"></a>
+${data.email}
 
 ## Github
 ${data.github}
@@ -89,9 +89,9 @@ ${data.contribution}
 ## Questions
 If you have any questions please contact!
 
-        [Email] ${data.email}
-        <a href="${data.email}"></a>
-        [GitHub]('https://github.com${data.github}')
+[Email] (mailto:${data.email})
+
+[GitHub]('https://github.com${data.github}')
 
 
             `;
