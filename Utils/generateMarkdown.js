@@ -6,7 +6,7 @@ function renderLicenseBadge(license) {
         return `https://img.shields.io/badge/license-${license}-red.svg`
     }
     if (license === 'Eclipse') {
-        return `https://img.shields.io/badge/license-${license}-blue.svg`
+        return `https://img.shields.io/badge/license-${license}-green.svg`
     }
 
 }
@@ -16,32 +16,36 @@ function renderLicenseLink(license) {
 }
 
 function renderLicenseSection(license) {
-    return `[![License](${renderLicenseBadge(license)})](${renderLicenseLink(license)})`;
+    return `[![License](${renderLicenseBadge(license)})](${renderLicenseLink(license)})`
 }
 
 
 
 
 function generateMarkdown(data) {
+    console.log(data);
+    return `
+# Title
+${data.title}
 
-    return `# ${data.title}
-    ${renderLicenseSection(data.license)}
+
+${renderLicenseSection(data.license)}
 
 ## Table of Contents
 
-[Title](#title)
-[Description](#description)
-[Email](#email)
-[GitHub](#github)
-[Usage](#usage)
-[License](#license)
-[Technology](#technology)
-[Installation](#installation)
-[contribution](#contribution)
-[Questions](#questions)
+* [Title](#title)  
+* [Description](#description) <br/> 
+* [Email](#email)  
+* [GitHub](#github)  
+* [Usage](#usage)  
+* [License](#license)
+* [Technology](#tech)
+* [Installation](#installation)
+* [contribution](#contribution)
+* [Questions](#questions)
 
     
-# ${data.title}
+
 
 ## Description
 ${data.description}
@@ -70,10 +74,10 @@ ${data.contribution}
 ## Questions
 If you have any questions please contact!
 
-[Email] (mailto:${data.email})
+[Email](mailto:${data.email})
 
-    [GitHub]("https://github.com${data.github}")
-        ;
-    
+[GitHub](https://github.com/${data.github})
+`
+}
 module.exports = generateMarkdown;
 

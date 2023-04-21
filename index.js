@@ -5,11 +5,11 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 const questions = [
     {
         type: 'input',
-        name: 'name',
-        message: "Let's make a README!  Please enter your first and last name.",
+        name: 'title',
+        message: "Enter our title",
         validate: (response) => {
             if (response === '') {
-                return 'Your name is required'
+                return 'Your title is required'
             }
 
             return true;
@@ -39,18 +39,7 @@ const questions = [
             return true;
         }
     },
-    {
-        type: 'input',
-        name: 'title',
-        message: "What is the name of your project?",
-        validate: (response) => {
-            if (response === '') {
-                return 'The project title is required'
-            }
 
-            return true;
-        }
-    },
     {
         type: 'input',
         name: 'description',
@@ -135,8 +124,8 @@ const questions = [
 
 ]
 
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, generateMarkdown(data), (err) => {
+function writeToFile(fileName, content) {
+    fs.writeFile(fileName, content, (err) => {
         if (err) {
             console.log(err);
         }
@@ -149,7 +138,7 @@ function init() {
             console.log(response);
             const content = generateMarkdown(response);
 
-            writeToFile("README.md", content)
+            writeToFile("README.md", content);
         })
 }
 init();
