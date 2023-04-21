@@ -16,6 +16,10 @@ This project enables the user to create a ReadMe file using only the command lin
 * [NodeJS]('https://nodejs.org/en')
 * [FS]('https://www.w3schools.com/nodejs/nodejs_filesystem.asp')
 
+## Installations
+NodeJS
+Inquirer
+
 
 ## Code Example
 This is a snippet of code used to attach the license used to the ReadMe
